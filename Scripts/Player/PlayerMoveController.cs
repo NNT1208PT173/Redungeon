@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMoveController : MonoBehaviour
+public class PlayerMoveController : Singleton<PlayerMoveController>
 {
+    [SerializeField] private float _moveDuration = 0.07f;
+
+    public ContactFilter2D castFilter;
 
     Rigidbody2D rb;
+    CapsuleCollider2D capsuleCol;
+
+    RaycastHit2D[] wallHits = new RaycastHit2D[5];
 
     private bool _isMoving = false;
     public bool IsMoving
@@ -50,11 +56,11 @@ public class PlayerMoveController : MonoBehaviour
 
         }
     }
-    [SerializeField] private float _moveDuration = 0.07f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        capsuleCol = GetComponent<CapsuleCollider2D>();
     }
 
 
@@ -76,7 +82,7 @@ public class PlayerMoveController : MonoBehaviour
 
     private void OnMoveRightEvent()
     {
-        if (!IsMoving)
+        if (!IsMoving && CanMoveInDirection(Vector2.right))
         {
             StartCoroutine(Move(transform.position,transform.position + Vector3.right));
         }
@@ -84,7 +90,7 @@ public class PlayerMoveController : MonoBehaviour
 
     private void OnMoveLeftEvent()
     {
-        if (!IsMoving)
+        if (!IsMoving&&CanMoveInDirection(Vector2.left))
         {
             StartCoroutine(Move(transform.position, transform.position + Vector3.left));
         }
@@ -92,7 +98,7 @@ public class PlayerMoveController : MonoBehaviour
 
     private void OnMoveForwardEvent()
     {
-        if (!IsMoving)
+        if (!IsMoving&& CanMoveInDirection(Vector2.up))
         {
             StartCoroutine(Move(transform.position, transform.position + Vector3.up));
         }
@@ -100,7 +106,7 @@ public class PlayerMoveController : MonoBehaviour
 
     private void OnMoveBackwardEvent()
     {
-        if (!IsMoving)
+        if (!IsMoving && CanMoveInDirection(Vector2.down))
         {
             StartCoroutine(Move(transform.position, transform.position + Vector3.down));
         }
@@ -135,6 +141,10 @@ public class PlayerMoveController : MonoBehaviour
         IsMoving = false;
     }
 
-
+    private bool CanMoveInDirection(Vector2 direction)
+    {
+        bool canMove = capsuleCol.Cast(direction, castFilter, wallHits, 0.2f) > 0;
+        return !canMove;
+    }
 
 }
