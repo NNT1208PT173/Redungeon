@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private float playerDistance = 0;
+    [SerializeField] Vector3 playerStartPosition;
+    [SerializeField] int coin = 0;
+
     private void Start()
     {
-        InputEvents.exit.AddListener(OnExit);
+        InputEvents.exitEvent.AddListener(OnExit);
+        playerStartPosition = PlayerMoveController.Instant.transform.position;
+    }
+
+    private void FixedUpdate()
+    {
+        playerDistance = PlayerMoveController.Instant.transform.position.y - playerStartPosition.y;
     }
 
     private void OnDestroy()
     {
-        InputEvents.exit.RemoveListener(OnExit);
+        InputEvents.exitEvent.RemoveListener(OnExit);
     }
 
 

@@ -6,7 +6,12 @@ using UnityEngine.Tilemaps;
 public class FallingDisco : MonoBehaviour
 {
     [SerializeField] float fallingTime = 2f;
-    [SerializeField] Tilemap tilemap;
+    Tilemap tilemap;
+
+    private void Awake()
+    {
+        tilemap = GetComponent<Tilemap>();
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {

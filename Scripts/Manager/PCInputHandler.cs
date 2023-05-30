@@ -12,7 +12,7 @@ public class PCInputHandler : MonoBehaviour
     [SerializeField] private KeyCode _moveForwardKey;
     [SerializeField] private KeyCode _moveBackwardKey;
 
-    [SerializeField] private KeyCode _exit;
+    [SerializeField] private KeyCode _exitKey;
 
     private void Update()
     {
@@ -33,9 +33,9 @@ public class PCInputHandler : MonoBehaviour
             InputEvents.moveBackwardEvent.Invoke();
         }
 
-        if (Input.GetKeyDown(_exit))
+        if (Input.GetKeyDown(_exitKey))
         {
-            InputEvents.exit.Invoke();
+            InputEvents.exitEvent.Invoke();
         }
     }
 }

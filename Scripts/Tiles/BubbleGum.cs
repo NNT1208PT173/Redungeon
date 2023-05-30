@@ -15,18 +15,24 @@ public class BubbleGum : MonoBehaviour
 
     private int countTrigger = 0;
 
-    private void Start()
-    {
-        countTrigger= 0;
-    }
 
     private void Awake()
     {
         tilemap = GetComponent<Tilemap>();
     }
 
+    private void Start()
+    {
+        countTrigger = 0;
+    }
+
 
     private void Update()
+    {
+        UpdateArrowDirection();
+    }
+
+    private void UpdateArrowDirection()
     {
         if (keyCodes.Count == 0)
         {
@@ -35,7 +41,7 @@ public class BubbleGum : MonoBehaviour
         }
         else
         {
-            
+
             KeyCode x = keyCodes.Peek();
             if (x == KeyCode.A)
             {

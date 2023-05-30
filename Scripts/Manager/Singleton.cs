@@ -2,21 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T _instance = null;
-    public static T Instance => _instance;
 
-    private void Awake()
+    private static T _instant = null;
+    public static T Instant
     {
-        if (_instance == null)
+        get
         {
-            _instance = this.GetComponent<T>();
-            return;
+            if (_instant == null)
+            {
+                if (FindObjectOfType<T>() != null)
+                    _instant = FindObjectOfType<T>();
+                else
+                    new GameObject().AddComponent<T>().name = "Singleton_" + typeof(T).ToString();
+            }
+
+            return _instant;
         }
-        if (_instance.gameObject.GetInstanceID() != gameObject.GetInstanceID())
+    }
+
+    void Awake()
+    {
+        if (_instant != null && _instant.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
         {
-            Destroy(gameObject);
+            Debug.LogError("Singleton already exist " + _instant.gameObject.name);
+            Destroy(this.gameObject);
         }
+        else
+            _instant = this.GetComponent<T>();
     }
 }

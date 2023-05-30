@@ -57,6 +57,23 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
         }
     }
 
+    private bool _isAlive = true;
+    public bool IsAlive
+    {
+        get
+        {
+            return _isAlive;
+        }
+        private set
+        {
+            _isAlive = value;
+            if (value == false)
+            {
+                InputEvents.exitEvent.Invoke();
+            }
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -72,6 +89,11 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
         InputEvents.moveBackwardEvent.AddListener(OnMoveBackwardEvent);
     }
 
+    private void Update()
+    {
+
+    }
+
     private void OnDestroy()
     {
         InputEvents.moveRightEvent.RemoveListener(OnMoveRightEvent);
@@ -84,13 +106,13 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
     {
         if (!IsMoving && CanMoveInDirection(Vector2.right))
         {
-            StartCoroutine(Move(transform.position,transform.position + Vector3.right));
+            StartCoroutine(Move(transform.position, transform.position + Vector3.right));
         }
     }
 
     private void OnMoveLeftEvent()
     {
-        if (!IsMoving&&CanMoveInDirection(Vector2.left))
+        if (!IsMoving && CanMoveInDirection(Vector2.left))
         {
             StartCoroutine(Move(transform.position, transform.position + Vector3.left));
         }
@@ -98,7 +120,7 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
 
     private void OnMoveForwardEvent()
     {
-        if (!IsMoving&& CanMoveInDirection(Vector2.up))
+        if (!IsMoving && CanMoveInDirection(Vector2.up))
         {
             StartCoroutine(Move(transform.position, transform.position + Vector3.up));
         }
@@ -115,7 +137,7 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
     private IEnumerator Move(Vector3 startPosition, Vector3 targetPosition)
     {
         Direction = targetPosition - startPosition;
-        
+
         Vector3 roundedPosition = new Vector3(
             Mathf.Round(transform.position.x * 2f) / 2f,
             Mathf.Round(transform.position.y * 2f) / 2f,
@@ -128,8 +150,8 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
 
         while (elapsedTime < duration)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime/_moveDuration);
-            elapsedTime+= Time.deltaTime;
+            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / _moveDuration);
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
         roundedPosition = new Vector3(
@@ -147,4 +169,11 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
         return !canMove;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "DeathZone")
+        {
+            IsAlive = false;
+        }
+    }
 }

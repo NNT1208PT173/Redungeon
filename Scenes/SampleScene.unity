@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 76640702}
   m_Layer: 9
   m_Name: WallTiles
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 293013265}
   m_Layer: 8
   m_Name: BubbleGum
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 303678505}
   m_Layer: 8
   m_Name: FallingDisco
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,7 +829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingTime: 1
-  tilemap: {fileID: 303678504}
 --- !u!19719996 &303678506
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -961,9 +960,9 @@ GameObject:
   - component: {fileID: 432346729}
   - component: {fileID: 432346728}
   - component: {fileID: 432346727}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NomalTiles
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2595,7 +2594,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2619,13 +2618,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: -10}
+  m_LocalPosition: {x: 0.5, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2677,7 +2676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &539719130
 Transform:
   m_ObjectHideFlags: 0
@@ -2804,7 +2803,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1776359814}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2828,7 +2827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829274324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: -10}
+  m_LocalPosition: {x: 0.5, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2850,9 +2849,9 @@ GameObject:
   - component: {fileID: 873954644}
   - component: {fileID: 873954643}
   - component: {fileID: 873954642}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BrokenGlasses
-  m_TagString: Untagged
+  m_TagString: DeathZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3113,7 +3112,7 @@ GameObject:
   - component: {fileID: 1066348651}
   m_Layer: 8
   m_Name: WaterTiles
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3644,6 +3643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf338250b6ee9b46a6ad2df8f4d5bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDistance: 0
+  playerStartPosition: {x: 0, y: 0, z: 0}
+  coin: 0
 --- !u!4 &1437815258
 Transform:
   m_ObjectHideFlags: 0
@@ -3706,7 +3708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_FollowOffset: {x: 0, y: 2.5, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3765,7 +3767,6 @@ GameObject:
   - component: {fileID: 1776359814}
   - component: {fileID: 1776359813}
   - component: {fileID: 1776359812}
-  - component: {fileID: 1776359817}
   - component: {fileID: 1776359816}
   - component: {fileID: 1776359818}
   - component: {fileID: 1776359820}
@@ -3884,33 +3885,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1776359817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776359811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197e1890731e5e5498303153a8d5f0cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveDuration: 0.002
-  castFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 512
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
 --- !u!114 &1776359818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3948,7 +3922,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.035557717, y: -0.018536747}
@@ -4169,7 +4143,7 @@ MonoBehaviour:
   _moveRightKey: 100
   _moveForwardKey: 119
   _moveBackwardKey: 115
-  _exit: 27
+  _exitKey: 0
 --- !u!4 &2035199797
 Transform:
   m_ObjectHideFlags: 0
