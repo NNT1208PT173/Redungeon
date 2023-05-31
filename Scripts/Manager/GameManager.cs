@@ -4,26 +4,43 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private float playerDistance = 0;
+    [SerializeField] private int playerDistance = 0;
     [SerializeField] Vector3 playerStartPosition;
-    [SerializeField] int coin = 0;
+    [SerializeField] int playerCoin = 0;
 
     private void Start()
     {
+        playerCoin = 0;
         InputEvents.exitEvent.AddListener(OnExit);
         playerStartPosition = PlayerMoveController.Instant.transform.position;
+        int bestDist = PlayerPrefs.GetInt(Constant.bestDist);
+        UIEvents.updateBestDistanceEvent.Invoke(bestDist);
     }
 
     private void FixedUpdate()
     {
-        playerDistance = PlayerMoveController.Instant.transform.position.y - playerStartPosition.y;
+        CalculateVerticalDistance();
+    }
+
+    private void CalculateVerticalDistance()
+    {
+        playerDistance = Mathf.Max(playerDistance, (int)(PlayerMoveController.Instant.transform.position.y - playerStartPosition.y));
+        UIEvents.updateDistanceEvent.Invoke(playerDistance);
+        UIEvents.updateBestDistanceEvent.Invoke(playerDistance);
+    }
+
+    public void UpdateCoin(int value)
+    {
+        playerCoin += value;
+        UIEvents.updateCoinEvent.Invoke(playerCoin);
+        PlayerPrefs.SetInt(Constant.totalCoin, value + PlayerPrefs.GetInt(Constant.totalCoin));
+        PlayerPrefs.Save();
     }
 
     private void OnDestroy()
     {
         InputEvents.exitEvent.RemoveListener(OnExit);
     }
-
 
     public void OnExit()
     {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1628f15e4ca0194284a98270af540ae
+guid: cb50840e034445745a056669f0ef52bc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 270
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,85 +117,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: creature-sheet (1)_0
+      name: coinbag_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 22
-        height: 19
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bad9474a2d2643648b0c197a8e198f70
-      internalID: 369947909
+      spriteID: 82ed6ff22fac91c42832e7c259262b54
+      internalID: -1233076507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creature-sheet (1)_1
+      name: coinbag_1
       rect:
         serializedVersion: 2
-        x: 25
-        y: 0
-        width: 22
-        height: 20
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f00069245b407c44cb989997f8847bee
-      internalID: 545410389
+      spriteID: 1e26fb7838c0f7d47aab0251880a322a
+      internalID: -397100683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creature-sheet (1)_2
+      name: coinbag_2
       rect:
         serializedVersion: 2
-        x: 49
-        y: 0
-        width: 22
-        height: 21
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3acccdd4aea2b7145aeca7cf1d191c3c
-      internalID: -2015795795
+      spriteID: 4f1c6f900fd3214489428f24dc170ead
+      internalID: 1024045985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creature-sheet (1)_3
+      name: coinbag_3
       rect:
         serializedVersion: 2
-        x: 73
-        y: 0
-        width: 22
-        height: 20
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cb0e81047a97fd42bf47883113d25b3
-      internalID: -1220523142
+      spriteID: 4f0d6e2a4f8023c4194adbb3ed6c7cbd
+      internalID: 959488659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coinbag_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3a2c20db61dff44848d56a84d11ab0
+      internalID: 1369935398
       vertices: []
       indices: 
       edges: []
@@ -211,10 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      creature-sheet (1)_3: -1220523142
-      creature-sheet (1)_0: 369947909
-      creature-sheet (1)_1: 545410389
-      creature-sheet (1)_2: -2015795795
+      coinbag_4: 1369935398
+      coinbag_3: 959488659
+      coinbag_1: -397100683
+      coinbag_2: 1024045985
+      coinbag_0: -1233076507
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
