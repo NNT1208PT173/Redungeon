@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8358001346627513932}
   - component: {fileID: 8358001346627513923}
   - component: {fileID: 8358001346627513922}
-  m_Layer: 7
+  m_Layer: 17
   m_Name: AttackZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8358001346858340930}
   - component: {fileID: 8358001346858340929}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: Weapon
   m_TagString: DeathZone
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 8358001347209778625}
   - component: {fileID: 8358001347209778626}
   - component: {fileID: 8358001347209778631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animatronic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
