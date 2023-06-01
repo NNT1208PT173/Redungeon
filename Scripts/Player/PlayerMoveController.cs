@@ -175,5 +175,7 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
         {
             IsAlive = false;
         }
+
+       
     }
 }
