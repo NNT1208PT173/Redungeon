@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class FallingDisco : MonoBehaviour
 {
-    [SerializeField] float fallingTime = 2f;
+    [SerializeField] float fallingTime = 1f;
     Tilemap tilemap;
 
     private void Awake()

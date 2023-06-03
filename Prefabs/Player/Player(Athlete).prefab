@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3099914217331859320}
   - component: {fileID: 8493802441687123256}
   - component: {fileID: 1315585447669759121}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: Player(Athlete)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 88312269
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1491012948, guid: 6a23390b5c8e5a14abd88437ad63a38a, type: 3}
+  m_Sprite: {fileID: 1276946516, guid: ec3f863fc3c2c2f408519f070ad06172, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 5651301951718035023}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8847c79b5792de94c90c679359c5a0c3, type: 2}
+  m_Controller: {fileID: 9100000, guid: f8cda7c6543f95046b9ac6b7c33abd16, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

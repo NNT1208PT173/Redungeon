@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 77290687799303820}
   - component: {fileID: 1672015063622035905}
   - component: {fileID: 7167436096687896251}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Player(Bodybuilder)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 88312269
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1491012948, guid: 6a23390b5c8e5a14abd88437ad63a38a, type: 3}
+  m_Sprite: {fileID: -2101892801, guid: aebf8ce8a6e99a94791ebb079ac534ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 3787312079719677447}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8847c79b5792de94c90c679359c5a0c3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 619b6d7da6e77a34bb1d3355d3aa4231, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

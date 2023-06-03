@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,26 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Vector3 playerStartPosition;
     [SerializeField] int playerCoin = 0;
 
+    [SerializeField] GameObject[] Characters;
+
+    private void Awake()
+    {
+        Debug.Log(PlayerPrefs.GetInt(Constant.playerIndex));
+        Characters[PlayerPrefs.GetInt(Constant.playerIndex)].SetActive(true);
+        
+    }
+
     private void Start()
     {
-        playerCoin = 0;
-        InputEvents.exitEvent.AddListener(OnExit);
-        playerStartPosition = PlayerMoveController.Instant.transform.position;
         int bestDist = PlayerPrefs.GetInt(Constant.bestDist);
+
+        playerCoin = 0;
+        playerStartPosition = PlayerMoveController.Instant.transform.position;
+
+        InputEvents.exitEvent.AddListener(OnExit);
         UIEvents.updateBestDistanceEvent.Invoke(bestDist);
+
+        
     }
 
     private void FixedUpdate()

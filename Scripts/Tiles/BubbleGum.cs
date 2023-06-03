@@ -111,6 +111,3 @@ public class BubbleGum : MonoBehaviour
         countTrigger = 0;
     }
 }
-
-    
-

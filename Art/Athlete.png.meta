@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2ca524e0cac05448b519b77d196fc5d
+guid: ec3f863fc3c2c2f408519f070ad06172
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OfficeStaff_0
+      name: Athlete_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad6baa25a694f484498d53e5e514c1e1
-      internalID: 1830901058
+      spriteID: cd7c2e317818015408b0c005730d70ab
+      internalID: 1276946516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeStaff_1
+      name: Athlete_1
       rect:
         serializedVersion: 2
         x: 48
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f530145a3ab81cc48a020958ff485275
-      internalID: -1867346873
+      spriteID: f34e754317b3e5d46bf71fdd52945909
+      internalID: -1352455847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeStaff_2
+      name: Athlete_2
       rect:
         serializedVersion: 2
         x: 96
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d53ed36142897e84ab8455c2d04cf5b2
-      internalID: -1506072854
+      spriteID: b45eec55a6d35ca4c86f319328070fd4
+      internalID: 774752779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeStaff_3
+      name: Athlete_3
       rect:
         serializedVersion: 2
         x: 144
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7db3499a344b9d74a980fcbe34f054ac
-      internalID: 1114089257
+      spriteID: 9ec498f62500232449e247baeb943283
+      internalID: 1402573373
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      OfficeStaff_3: 1114089257
-      OfficeStaff_0: 1830901058
-      OfficeStaff_1: -1867346873
-      OfficeStaff_2: -1506072854
+      Athlete_1: -1352455847
+      Athlete_3: 1402573373
+      Athlete_2: 774752779
+      Athlete_0: 1276946516
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

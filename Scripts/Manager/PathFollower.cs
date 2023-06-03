@@ -13,7 +13,6 @@ public class PathFollower : MonoBehaviour
     private Vector3 startPos;
     private Vector3 nextPos;
     private Vector3 direction;
-
     private bool canMove = true;
 
     Rigidbody2D rb;
