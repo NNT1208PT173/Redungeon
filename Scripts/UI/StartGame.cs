@@ -7,7 +7,13 @@ public class StartGame : MonoBehaviour
 {
     public void OnStartGame()
     {
-       
+        PlayerPrefs.SetInt(Constant.playerIndex, 0);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(2);
+    }
+
+    public void OnSelectCharacter()
+    {
         SceneManager.LoadScene(1);
     }
 }

@@ -28,7 +28,6 @@ public class GameManager : Singleton<GameManager>
         InputEvents.exitEvent.AddListener(OnExit);
         UIEvents.updateBestDistanceEvent.Invoke(bestDist);
 
-        
     }
 
     private void FixedUpdate()
