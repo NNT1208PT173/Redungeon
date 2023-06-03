@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,8 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] RectTransform content;
 
     [SerializeField] RectTransform[] rectTransforms;
+
+    [SerializeField] TextMeshProUGUI totalCointText;
 
     int playerIndex;
 
@@ -19,10 +22,12 @@ public class CharacterUI : MonoBehaviour
     private void Start()
     {
         playerIndex = 0;
+        UpdateTotalCoinText();
     }
 
     public void OnPlayGame()
     {
+        Debug.Log(1);
         playerIndex =Mathf.Abs((int)( content.anchoredPosition.x / rectTransforms[0].rect.width));
         PlayerPrefs.SetInt(Constant.playerIndex,playerIndex);
         PlayerPrefs.Save();
@@ -49,5 +54,17 @@ public class CharacterUI : MonoBehaviour
         {
             content.anchoredPosition = new Vector3(content.anchoredPosition.x - rectTransforms[1].rect.width, content.anchoredPosition.y);
         }
+    }
+
+    public void OnReturn()
+    {
+        Debug.Log(2);
+        SceneManager.LoadScene(0);
+    }
+
+    public void UpdateTotalCoinText()
+    {
+        int totalCoin = PlayerPrefs.GetInt(Constant.totalCoin);
+        totalCointText.text = "total: " + totalCoin.ToString("D4");
     }
 }
