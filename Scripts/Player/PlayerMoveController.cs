@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoveController : Singleton<PlayerMoveController>
 {
@@ -69,7 +70,7 @@ public class PlayerMoveController : Singleton<PlayerMoveController>
             _isAlive = value;
             if (value == false)
             {
-                InputEvents.exitEvent.Invoke();
+                GameEvents.gameOverEvent.Invoke();
             }
         }
     }

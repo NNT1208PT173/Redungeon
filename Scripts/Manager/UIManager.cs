@@ -9,21 +9,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI coin;
     [SerializeField] TextMeshProUGUI bestDistance;
 
-    private void Start()
-    {
-        UIEvents.updateDistanceEvent.AddListener(UpdateDistance);
-        UIEvents.updateCoinEvent.AddListener(UpdateCoin);
-        UIEvents.updateBestDistanceEvent.AddListener(UpdateBestDistance);
-        UIEvents.updateTotalCoinEvent.AddListener(UpdateTotalCoin);
+    [SerializeField] GameObject scorePanel;
+    [SerializeField] GameObject pausePanel;
 
+    private void OnEnable()
+    {
+        GameEvents.updateDistanceEvent.AddListener(UpdateDistance);
+        GameEvents.updateCoinEvent.AddListener(UpdateCoin);
+        GameEvents.updateBestDistanceEvent.AddListener(UpdateBestDistance);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        UIEvents.updateDistanceEvent.RemoveListener(UpdateDistance);
-        UIEvents.updateCoinEvent.RemoveListener(UpdateCoin);
-        UIEvents.updateBestDistanceEvent.RemoveListener(UpdateBestDistance);
-        UIEvents.updateTotalCoinEvent.RemoveListener(UpdateTotalCoin);
+        GameEvents.updateDistanceEvent.RemoveListener(UpdateDistance);
+        GameEvents.updateCoinEvent.RemoveListener(UpdateCoin);
+        GameEvents.updateBestDistanceEvent.RemoveListener(UpdateBestDistance);
     }
 
 
@@ -37,11 +37,6 @@ public class UIManager : MonoBehaviour
         coin.text = "+    " + value.ToString();
     }
 
-    private void UpdateTotalCoin(int value) { 
-
-    }
-
-
     private void UpdateBestDistance(int value)
     {
         int bestDist = PlayerPrefs.GetInt(Constant.bestDist);
@@ -50,10 +45,26 @@ public class UIManager : MonoBehaviour
             bestDist = value;
             PlayerPrefs.SetInt(Constant.bestDist, value);
             PlayerPrefs.Save();
-            
+
         }
 
         bestDistance.text = "Best:" + bestDist + "m";
 
     }
-}
+
+    public void OnPause()
+    {
+        Time.timeScale = 0;
+        scorePanel.SetActive(false);
+        pausePanel.SetActive(true);
+
+    }
+    public void OnResume()
+    {
+        Time.timeScale = 1;
+        scorePanel.SetActive(true);
+        pausePanel.SetActive(false);
+    } 
+
+
+    }

@@ -10,19 +10,11 @@ public class CharacterUI : MonoBehaviour
 
     [SerializeField] RectTransform[] rectTransforms;
 
-    [SerializeField] TextMeshProUGUI totalCointText;
-
     int playerIndex;
-
-    
-    private void Awake()
-    {
-    }
 
     private void Start()
     {
         playerIndex = 0;
-        UpdateTotalCoinText();
     }
 
     public void OnPlayGame()
@@ -58,13 +50,7 @@ public class CharacterUI : MonoBehaviour
 
     public void OnReturn()
     {
-        Debug.Log(2);
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
-    }
-
-    public void UpdateTotalCoinText()
-    {
-        int totalCoin = PlayerPrefs.GetInt(Constant.totalCoin);
-        totalCointText.text = "total: " + totalCoin.ToString("D4");
     }
 }

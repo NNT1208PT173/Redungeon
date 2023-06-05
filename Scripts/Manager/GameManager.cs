@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -10,6 +12,12 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] int playerCoin = 0;
 
     [SerializeField] GameObject[] Characters;
+
+    private void OnEnable()
+    {
+        InputEvents.exitEvent.AddListener(OnExit);
+        GameEvents.gameOverEvent.AddListener(OnGameOver);
+    }
 
     private void Awake()
     {
@@ -25,8 +33,9 @@ public class GameManager : Singleton<GameManager>
         playerCoin = 0;
         playerStartPosition = PlayerMoveController.Instant.transform.position;
 
-        InputEvents.exitEvent.AddListener(OnExit);
-        UIEvents.updateBestDistanceEvent.Invoke(bestDist);
+        
+
+        GameEvents.updateBestDistanceEvent.Invoke(bestDist);
 
     }
 
@@ -35,24 +44,25 @@ public class GameManager : Singleton<GameManager>
         CalculateVerticalDistance();
     }
 
+    private void OnDisable()
+    {
+        InputEvents.exitEvent.RemoveListener(OnExit);
+        GameEvents.gameOverEvent.RemoveListener(OnGameOver);
+    }
+
     private void CalculateVerticalDistance()
     {
         playerDistance = Mathf.Max(playerDistance, (int)(PlayerMoveController.Instant.transform.position.y - playerStartPosition.y));
-        UIEvents.updateDistanceEvent.Invoke(playerDistance);
-        UIEvents.updateBestDistanceEvent.Invoke(playerDistance);
+        GameEvents.updateDistanceEvent.Invoke(playerDistance);
+        GameEvents.updateBestDistanceEvent.Invoke(playerDistance);
     }
 
     public void UpdateCoin(int value)
     {
         playerCoin += value;
-        UIEvents.updateCoinEvent.Invoke(playerCoin);
+        GameEvents.updateCoinEvent.Invoke(playerCoin);
         PlayerPrefs.SetInt(Constant.totalCoin, value + PlayerPrefs.GetInt(Constant.totalCoin));
         PlayerPrefs.Save();
-    }
-
-    private void OnDestroy()
-    {
-        InputEvents.exitEvent.RemoveListener(OnExit);
     }
 
     public void OnExit()
@@ -67,5 +77,12 @@ public class GameManager : Singleton<GameManager>
         #elif (UNITY_WEBGL)
                     SceneManager.LoadScene("QuitScene");
         #endif
+    }
+
+    public void OnGameOver()
+    {
+        PlayerPrefs.SetInt(Constant.distance, playerDistance);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(3);
     }
 }
